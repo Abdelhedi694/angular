@@ -1,0 +1,24 @@
+h1 {
+  color: bisque;
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(#f69d3c, #3f87a6);
+}
+
+section ul li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section ul {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
