@@ -23,7 +23,9 @@ let tabAlbum = [
 
 function ajoutUnAlbum(album) {
   let maSection = document.querySelector("section");
-  maSection.innerHTML += `<ul>
+  let ul = document.createElement("ul");
+
+  ul.innerHTML += `
 
   <li><img src="${album.image}"></li>
   <li>
@@ -34,8 +36,18 @@ function ajoutUnAlbum(album) {
       <div class="genre">${album.genre}</div>
       <div class="duree">${album.duree}</div>
   </li>
+`;
 
-</ul>`;
+  maSection.append(ul);
+
+  let boutonSupp = document.createElement("button");
+  boutonSupp.innerText = "supprimer";
+  ul.append(boutonSupp);
+  boutonSupp.addEventListener("click", function () {
+    ul.remove();
+    let index = tabAlbum.indexOf(album);
+    tabAlbum.splice(index, 1);
+  });
 }
 
 function ajoutToutAlbums() {
