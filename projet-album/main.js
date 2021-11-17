@@ -21,61 +21,44 @@ let tabAlbum = [
   },
 ];
 
-function stockHtmlDuTableau() {
-  let html = `<ul>`;
-  for (let unAlbum of tabAlbum) {
-    html += `<li><img src="${unAlbum.image}"></li>`;
-    html += ` <li>
-        <div class="nom">${unAlbum.nom}</div>
-        <div class="artiste">${unAlbum.artiste}</div>
-        <div class="label">${unAlbum.label}</div>
-        <div class="date">${unAlbum.anneeParution}</div>
-        <div class="genre">${unAlbum.genre}</div>
-        <div class="duree">${unAlbum.duree}</div>
-    </li>`;
+function ajoutUnAlbum(album) {
+  let maSection = document.querySelector("section");
+  maSection.innerHTML += `<ul>
+
+  <li><img src="${album.image}"></li>
+  <li>
+      <div class="nom">${album.nom}</div>
+      <div class="nom">${album.artiste}</div>
+      <div class="label">${album.label}</div>
+      <div class="date">${album.anneeParution}</div>
+      <div class="genre">${album.genre}</div>
+      <div class="duree">${album.duree}</div>
+  </li>
+
+</ul>`;
+}
+
+function ajoutToutAlbums() {
+  for (const album of tabAlbum) {
+    ajoutUnAlbum(album);
   }
-  html += `</ul>`;
-  return html;
 }
 
-function displayAlbum() {
-  let mesUl = document.querySelector("section");
-  mesUl.innerHTML = stockHtmlDuTableau();
-}
+ajoutToutAlbums();
 
-displayAlbum();
-
-// function afficherFilm(film) {
-//   let blocFilm = document.createElement("div");
-//   blocFilm.innerHTML = `<p>${film.id} - ${film.nom}</p>`;
-
-//   document.getElementById("listeFilms").append(blocFilm);
-// }
-
-// function afficherListeFilms(tab) {
-//   for (let film of tab) {
-//     afficherFilm(film);
-//   }
-// }
-
-// let tabFilms = [
-//   { id: 1, nom: "Film 1" },
-//   { id: 2, nom: "Film 2" },
-// ];
-
-// afficherListeFilms(tabFilms);
-// function searchIndex(nomArtiste) {
-//   let i = 0;
-//   let isHere = false;
-//   while (!isHere && i < tabAlbum.length) {
-//     isHere = tabAlbum[i].artiste == nomArtiste;
-//     i++;
-//   }
-//   if (isHere) {
-//     return i - 1;
-//   } else {
-//     return -1;
-//   }
-// }
-
-// console.log(searchIndex("hedi"));
+document
+  .querySelector("#ajoutAlbum")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    let objAlbum = {
+      image: this.url.value,
+      nom: this.name.value,
+      artiste: this.artiste.value,
+      label: this.label.value,
+      anneeParution: this.date.value,
+      genre: this.style.value,
+      duree: this.time.value,
+    };
+    tabAlbum.push(objAlbum);
+    ajoutUnAlbum(objAlbum);
+  });

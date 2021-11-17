@@ -4,8 +4,9 @@ h1 {
 }
 
 body {
-  background: linear-gradient(#f69d3c, #3f87a6);
+  background: linear-gradient(to right, #000000, #3f87a6);
   background-repeat: no-repeat;
+  color: white;
 }
 
 section ul li {
@@ -21,5 +22,19 @@ section {
 section ul {
   display: flex;
   align-items: center;
-  width: 30%;
+}
+
+input {
+  width: 200px;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+#send {
+  background-color: rgba(3, 46, 238, 0.432);
+  color: white;
+}
+
+section ul li img {
+  width: 250px;
 }
