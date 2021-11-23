@@ -15,7 +15,8 @@ type jeux = {
 
 function ajoutUnJeux(jeux:jeux) {
     let ul:HTMLUListElement = document.createElement("ul")
-    
+    let supp:HTMLButtonElement = document.createElement("button")
+    supp.innerText = "supprimer"
        ul.innerHTML += `<li>${jeux.nom}</li>
         <li>${jeux.genre}</li>
         <li>${jeux.editeur}</li>
@@ -29,6 +30,13 @@ function ajoutUnJeux(jeux:jeux) {
     
     let section = document.querySelector("#listeJeux") as HTMLTableSectionElement;
     section.append(ul)
+    ul.append(supp)
+    supp.addEventListener("click", function supprimer() {
+        ul.remove()
+        tableauJeux.splice(tableauJeux.indexOf(jeux),1)
+        console.log(tableauJeux);
+        
+    })
 }
 
 function ajoutJeuxTableau(tableau:jeux[]) {
@@ -40,8 +48,19 @@ function ajoutJeuxTableau(tableau:jeux[]) {
 ajoutJeuxTableau(tableauJeux)
 
 
-
 document.querySelector("form")?.addEventListener("submit",function (e:Event) {
     e.preventDefault()
-    // ajoutJeuxTableau(tableauJeux)
+    let jeuxUser:jeux = {
+    nom : this.nom.value,
+    genre : this.genre.value,
+    editeur : this.editeur.value,
+    pegi : this.pegi.value,
+    anneeSortie : this.date.value,
+    multijoueur : this.multi.value,
+    enLigne : this.online.value,
+    image : this.url.value,
+    }
+    tableauJeux.push(jeuxUser)
+    ajoutUnJeux(jeuxUser)
+    
 })
