@@ -23,7 +23,7 @@ function ajoutUnJeux(jeux:jeux) {
         <li>${jeux.anneeSortie}</li>
         <li>${jeux.multijoueur}</li>
         <li>${jeux.enLigne}</li>
-        <li>${jeux.image}</li>`
+        <li><img src="${jeux.image}"></img></li>`
     ul.innerHTML+= `</ul>`
     
     
