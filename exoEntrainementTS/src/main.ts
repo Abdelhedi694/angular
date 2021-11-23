@@ -25,13 +25,18 @@ function ajoutUnJeux(jeux:jeux) {
         <li>${jeux.multijoueur}</li>
         <li>${jeux.enLigne}</li>
         <li>${jeux.image}</li>`
-    
     html+= `</ul>`
-    console.log(html);
     
     
 }
-ajoutUnJeux(tableauJeux[1])
+
+function ajoutJeuxTableau(tableau:jeux[]) {
+    for (const jeu of tableau) {
+        ajoutUnJeux(jeu)
+    }
+    
+}
+
 
 
 document.querySelector("form")?.addEventListener("submit",function (e:Event) {
