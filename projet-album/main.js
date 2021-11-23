@@ -39,7 +39,26 @@ function ajoutUnAlbum(album) {
 `;
 
   maSection.append(ul);
-
+  let boutonModif = document.createElement("button");
+  boutonModif.innerText = "modifier";
+  ul.append(boutonModif);
+  boutonModif.addEventListener("click", function modifUnAlbum() {
+    let url = document.querySelector("form #url");
+    url.value = album.image;
+    let nom = document.querySelector("form #name");
+    nom.value = album.nom;
+    let artiste = document.querySelector("form #artiste");
+    artiste.value = album.artiste;
+    let label = document.querySelector("form #label");
+    label.value = album.label;
+    let date = document.querySelector("form #date");
+    date.value = album.anneeParution;
+    let style = document.querySelector("form #style");
+    style.value = album.genre;
+    let time = document.querySelector("form #time");
+    time.value = album.duree;
+    
+  });
   let boutonSupp = document.createElement("button");
   boutonSupp.innerText = "supprimer";
   ul.append(boutonSupp);
