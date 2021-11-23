@@ -33,7 +33,7 @@ module.exports = {
   ],
   devServer: {
     static: {
-      directory: "./dist",
+      directory: "./src",
     },
   },
 };
