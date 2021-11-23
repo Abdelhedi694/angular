@@ -14,10 +14,9 @@ type jeux = {
 }
 
 function ajoutUnJeux(jeux:jeux) {
-    let html:string = ``
-    html+= `<ul>`
+    let ul:HTMLUListElement = document.createElement("ul")
     
-        html+= `<li>${jeux.nom}</li>
+       ul.innerHTML += `<li>${jeux.nom}</li>
         <li>${jeux.genre}</li>
         <li>${jeux.editeur}</li>
         <li>${jeux.pegi}</li>
@@ -25,9 +24,11 @@ function ajoutUnJeux(jeux:jeux) {
         <li>${jeux.multijoueur}</li>
         <li>${jeux.enLigne}</li>
         <li>${jeux.image}</li>`
-    html+= `</ul>`
+    ul.innerHTML+= `</ul>`
     
     
+    let section = document.querySelector("#listeJeux") as HTMLTableSectionElement;
+    section.append(ul)
 }
 
 function ajoutJeuxTableau(tableau:jeux[]) {
@@ -36,10 +37,11 @@ function ajoutJeuxTableau(tableau:jeux[]) {
     }
     
 }
+ajoutJeuxTableau(tableauJeux)
 
 
 
 document.querySelector("form")?.addEventListener("submit",function (e:Event) {
     e.preventDefault()
-
+    // ajoutJeuxTableau(tableauJeux)
 })
