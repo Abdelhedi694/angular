@@ -1,17 +1,7 @@
-import {tableauJeux} from "./creationTableauEnDur";
+import { jeux } from "./creationTableauEnDur"
 import "./style.css"
+import {tableauJeux} from "./data/games.data"
 
-
-type jeux = {
-    nom : string
-    genre : string
-    editeur : string
-    pegi : number
-    anneeSortie : number
-    multijoueur : boolean
-    enLigne : boolean
-    image : URL
-}
 
 function ajoutUnJeux(jeux:jeux) {
     let ul:HTMLUListElement = document.createElement("ul")
@@ -50,17 +40,8 @@ ajoutJeuxTableau(tableauJeux)
 
 document.querySelector("form")?.addEventListener("submit",function (e:Event) {
     e.preventDefault()
-    let jeuxUser:jeux = {
-    nom : this.nom.value,
-    genre : this.genre.value,
-    editeur : this.editeur.value,
-    pegi : this.pegi.value,
-    anneeSortie : this.date.value,
-    multijoueur : this.multi.value,
-    enLigne : this.online.value,
-    image : this.url.value,
-    }
-    tableauJeux.push(jeuxUser)
-    ajoutUnJeux(jeuxUser)
+    let newGame = new jeux(this.nom.value, this.genre.value, this.editeur.value, this.pegi.value, this.date.value, this.multi.value, this.online.value, this.url.value)
+    
+    tableauJeux.push(newGame)
     
 })
