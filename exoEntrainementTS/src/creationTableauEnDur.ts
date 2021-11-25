@@ -1,5 +1,5 @@
 
-export class jeux{
+export class Jeux{
    public nom : string;
    public genre : string;
    public editeur : string;
