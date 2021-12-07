@@ -1,0 +1,6 @@
+<form (submit)="soumettre()" #monFormulaire=ngForm>
+    <input type="text" placeholder="Nom de la ville à rechercher" [(ngModel)]="nom" name="nom">
+    <input type="submit" value="go" name="bouton">
+</form>
+
+<p *ngFor="let ville of tabVille">{{ville.nom}}</p>
