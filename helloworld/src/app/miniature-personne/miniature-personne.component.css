@@ -1,0 +1,27 @@
+.contenu {
+  background-color: rgb(85, 153, 150);
+  margin-bottom: 10px;
+  display: flex;
+}
+
+h1 {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.date {
+  display: flex;
+  align-items: flex-end;
+}
+
+h2 {
+  margin: 0;
+}
+
+.majeur {
+  background-color: green;
+}
+
+.mineur {
+  background-color: red;
+}

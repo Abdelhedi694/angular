@@ -1,0 +1,12 @@
+<div class="contenu">
+    <h1>{{unePersonne.nomComplet}}</h1>
+    <div class="date">
+        <h2>{{unePersonne.dateNaissance}}</h2>
+    </div>
+    <div>
+        <button (click)="reagir()">supprimer</button>
+        <span class="majeur" *ngIf="unePersonne.majeur">majeur</span>
+        <span class="mineur" *ngIf="!unePersonne.majeur">mineur</span>
+    </div>
+
+</div>

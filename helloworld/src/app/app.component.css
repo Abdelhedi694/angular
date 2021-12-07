@@ -1,0 +1,10 @@
+.flex-carrerPersonne {
+  display: flex;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+}
+
+.flex-carrerPersonne app-miniature-personne {
+  width: 45%;
+}
